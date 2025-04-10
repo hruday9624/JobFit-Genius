@@ -74,5 +74,7 @@ Edit `.env` to configure:
 - Logging settings
 - Default model parameters
 
-## License
-MIT
+## 📢 Licenseing Note:
+This project is built for educational and demo purposes only. Commercial use or reselling of this system, UI, or logic without permission is not allowed.
+
+Contact me if you’d like to collaborate or use this in your product.
