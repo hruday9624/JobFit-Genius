@@ -29,10 +29,10 @@ def main():
                                  horizontal=True)
 
         if resume_option == "Upload File":
-            resume_file = st.file_uploader("Choose PDF/DOCX", type=["pdf","docx"], key="jd")
+            resume_file = st.file_uploader("Choose PDF/DOCX", type=["pdf","docx"], key="resume_upload")
             resume_text = ""
         else:
-            resume_text = st.text_area("Paste your resume", height=200)
+            resume_text = st.text_area("Paste your resume", height=200, key="resume_text")
             resume_file = None
     
     with col2:
@@ -42,10 +42,10 @@ def main():
                            horizontal=True)
         
         if jd_option == "Upload File":
-            jd_file = st.file_uploader("Choose PDF/DOCX", type=["pdf", "docx"], key="jd")
+            jd_file = st.file_uploader("Choose PDF/DOCX", type=["pdf", "docx"], key="jd_upload")
             jd_text = ""
         else:
-            jd_text = st.text_area("Paste Job Description", height=200)
+            jd_text = st.text_area("Paste Job Description", height=200, key="jd_text")
             jd_file = None
     
     if st.button("Analyze & Optimize"):
