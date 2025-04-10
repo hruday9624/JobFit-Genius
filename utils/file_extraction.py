@@ -2,19 +2,22 @@ import fitz  # PyMuPDF
 import docx
 from io import BytesIO
 
-def extract_text_from_pdf(file):
-    """Extract text from PDF file (path or Streamlit UploadedFile)"""
+import PyPDF2
+
+def extract_text_from_pdf(file_path: str) -> str:
+    """Extracts text from a PDF using PyPDF2."""
     text = ""
-    if hasattr(file, 'read'):  # Streamlit UploadedFile
-        with BytesIO(file.read()) as pdf_bytes:
-            with fitz.open(stream=pdf_bytes, filetype="pdf") as pdf_document:
-                for page in pdf_document:
-                    text += page.get_text()
-    else:  # File path
-        with fitz.open(file) as pdf_document:
-            for page in pdf_document:
-                text += page.get_text()
-    return text
+    try:
+        with open(file_path, "rb") as file:
+            reader = PyPDF2.PdfReader(file)
+            for page in reader.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text += page_text + "\n"
+    except Exception as e:
+        print(f"Error reading PDF: {e}")
+    return text.strip()
+
 
 def extract_text_from_docx(file):
     """Extract text from DOCX file (path or Streamlit UploadedFile)"""
