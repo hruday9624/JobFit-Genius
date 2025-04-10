@@ -49,8 +49,8 @@ def main():
             jd_file = None
     
     if st.button("Analyze & Optimize"):
-        if not resume_file:
-            st.warning("Please upload your resume")
+        if not (resume_file or resume_text):
+            st.warning("Please provide your resume")
             return
             
         if not (jd_file or jd_text):
