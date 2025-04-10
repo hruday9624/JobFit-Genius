@@ -67,7 +67,9 @@ def main():
                     os.environ["OPENAI_API_KEY"] = openai_key
                 
                 # Extract resume text
-                resume_text = extract_text(resume_file)
+                if resume_file:
+                    resume_text = extract_text(resume_file)
+                #resume_text = extract_text(resume_file)
                 
                 # Get JD text
                 if jd_file:
