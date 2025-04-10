@@ -26,7 +26,8 @@ def main():
         #resume_file = st.file_uploader("Choose PDF/DOCX", type=["pdf", "docx"], key="resume")
         resume_option = st.radio("Select input method:",
                                  ("Upload File", "Paste Text"),
-                                 horizontal=True)
+                                 horizontal=True,
+                                key="resume_input_method")
 
         if resume_option == "Upload File":
             resume_file = st.file_uploader("Choose PDF/DOCX", type=["pdf","docx"], key="resume_upload")
@@ -39,7 +40,8 @@ def main():
         st.header("Job Description")
         jd_option = st.radio("Select input method:", 
                            ("Upload File", "Paste Text"), 
-                           horizontal=True)
+                           horizontal=True,
+                             key="jd_input_method")
         
         if jd_option == "Upload File":
             jd_file = st.file_uploader("Choose PDF/DOCX", type=["pdf", "docx"], key="jd_upload")
