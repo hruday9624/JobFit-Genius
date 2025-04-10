@@ -23,8 +23,18 @@ def main():
     
     with col1:
         st.header("Upload Resume")
-        resume_file = st.file_uploader("Choose PDF/DOCX", type=["pdf", "docx"], key="resume")
-        
+        #resume_file = st.file_uploader("Choose PDF/DOCX", type=["pdf", "docx"], key="resume")
+        resume_option = st.radio("Select input method:",
+                                 ("Upload File", "Paste Text"),
+                                 horizontal=True)
+
+        if resume_option == "Upload File":
+            resume_file = st.file_uploader("Choose PDF/DOCX", type=["pdf","docx"], key="jd")
+            resume_text = ""
+        else:
+            resume_text = st.text_area("Paste your resume", height=200)
+            resume_file = None
+    
     with col2:
         st.header("Job Description")
         jd_option = st.radio("Select input method:", 
