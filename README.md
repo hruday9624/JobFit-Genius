@@ -1,3 +1,15 @@
+---
+title: Resume JD Fit Analyzer
+emoji: 📄
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+sdk_version: "1.33.0"
+app_file: app.py
+pinned: false
+---
+
+
 # JD-Resume Fit Analyzer & Optimizer
 
 A multi-agent LLM system that analyzes resume-JD fit and optimizes resumes for better ATS compatibility.
